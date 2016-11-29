@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1a87a392-b900-11e5-b89e-d509bb6c0083++1324",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "1a87a392-b900-11e5-b89e-d509bb6c0083++1324" : {
+
+    },
+    "0a06d7a8-f94e-11e4-ac37-8755d089c73e++3986" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1a87a392-b900-11e5-b89e-d509bb6c0083++1324" : 0,
+    "0a06d7a8-f94e-11e4-ac37-8755d089c73e++3986" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2C9F6268-86FB-497F-A421-F6235FF6D8AD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1a87a392-b900-11e5-b89e-d509bb6c0083++1324" : "YISAI_v2\/",
+    "0a06d7a8-f94e-11e4-ac37-8755d089c73e++3986" : "YISAI"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "YISAI",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "YISAI.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/yaohui.zhang@192.168.1.10\/yisai",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0a06d7a8-f94e-11e4-ac37-8755d089c73e++3986"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/han.li@192.168.1.10\/yisai_v2",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1a87a392-b900-11e5-b89e-d509bb6c0083++1324"
+    }
+  ]
+}

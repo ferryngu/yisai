@@ -1,0 +1,38 @@
+初始化一个FECore工程
+
+TARGETS -> Build Setting -> ALL -> Search Paths -> Header Search Paths
+
+$(PROJECT_DIR)/FECoreLib
+$(PROJECT_DIR)/FECoreLib/curl
+
+
+$(PROJECT_DIR)/FEFramework
+$(PROJECT_DIR)/FEFramework/curl
+
+#$(PROJECT_DIR)/libs
+#$(PROJECT_DIR)/libs/curl
+
+
+Info.plist
+删除掉 Main Storyboard file base name
+
+
+TARGETS -> General -> Linked Frameworks And Binary Libraries
+加入
+
+libz
+libsqlite
+AVFoundation
+
+
+TARGETS -> Build Setting -> ALL -> Swift Compiler - Code Generation
+Objective-C Bridging Header 加入
+$dir/projname-Bridging-Header.h
+$dir 是工程相对路径，例如: 'ch74/ch74-Bridging-Header.h'
+
+
+兼容旧代码：
+TARGETS -> ALL -> Apple LLVM 6.0 Language -> Prefix Header 加入
+$dir/PrefixHeader.pch
+
+$dir 是工程相对路径，例如: 'ch74/PrefixHeader.pch'

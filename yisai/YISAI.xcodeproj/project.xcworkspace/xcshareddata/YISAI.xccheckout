@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2C9F6268-86FB-497F-A421-F6235FF6D8AD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YISAI</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0a06d7a8-f94e-11e4-ac37-8755d089c73e++3986</key>
+		<string>svn://yaohui.zhang@192.168.1.10/yisai/ios/YISAI</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YISAI.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0a06d7a8-f94e-11e4-ac37-8755d089c73e++3986</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>0a06d7a8-f94e-11e4-ac37-8755d089c73e++3986</key>
+		<string>svn://yaohui.zhang@192.168.1.10/yisai</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>svn://yaohui.zhang@192.168.1.10/yisai/ios/YISAI/YISAI.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0a06d7a8-f94e-11e4-ac37-8755d089c73e++3986</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0a06d7a8-f94e-11e4-ac37-8755d089c73e++3986</string>
+			<key>IDESourceControlWCCName</key>
+			<string>YISAI</string>
+		</dict>
+	</array>
+</dict>
+</plist>

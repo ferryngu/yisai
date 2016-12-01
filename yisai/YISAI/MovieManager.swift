@@ -12,7 +12,7 @@ import AVFoundation
 let movieFilesManager : MovieFilesManager = MovieFilesManager()
 
 class MovieFilesManager: NSObject {
-    
+    //42564675768o8
     class func getUserLocalAvatarPath() -> String? {
         
         if ysApplication == nil || ysApplication.loginUser == nil || ysApplication.loginUser.uid == nil {

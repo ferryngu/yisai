@@ -109,13 +109,17 @@ class YSDiscovery: NSObject {
                         }
                         let slide = YSDiscoveryMainSlide.slideWithAttributes(attributes as! NSDictionary)
                         resp_lst_slide.append(slide)
+                        
                     }
                 }
                 
                 block(resp_lst_findwork, resp_lst_slide, nil)
             })
             
+            
         }, params: ["a", "findModuleData", "uid", uid, "loginkey", loginkey, "start", "\(start)", "num", "\(num)"])
+        
+       
     }
     
     /** 获取搜索关键字有关的作品列表 */

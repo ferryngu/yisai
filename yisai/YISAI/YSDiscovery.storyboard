@@ -36,7 +36,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="232"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CVO-MC-KJE" id="bwY-Fk-fhl">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="232"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iG8-TW-L7k">
@@ -468,7 +468,7 @@
                                                         <constraint firstAttribute="height" constant="10" id="qLq-pa-GtX"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="31" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="1gO-To-o1G">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="31" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="1gO-To-o1G">
                                                     <rect key="frame" x="25" y="71" width="30" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="SBg-Zo-YhH"/>
@@ -478,7 +478,7 @@
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="32" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000年01月01日 23:59" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="144-Lf-aDc">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="32" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="144-Lf-aDc">
                                                     <rect key="frame" x="75" y="71" width="100" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="9K3-IG-icI"/>
@@ -488,23 +488,23 @@
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="33" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeg-Ua-b7g">
-                                                    <rect key="frame" x="268" y="71" width="19" height="11"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="33" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeg-Ua-b7g">
+                                                    <rect key="frame" x="260" y="71" width="0.0" height="11"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10.5" id="GQC-Ku-iqS"/>
-                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="Zpl-pA-hWU"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="85" id="Zpl-pA-hWU"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <color key="textColor" red="0.94901960784313721" green="0.40392156862745099" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3A6-JS-HcD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3A6-JS-HcD">
                                                     <rect key="frame" x="487" y="71" width="5" height="11"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoO-ny-nBQ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoO-ny-nBQ">
                                                     <rect key="frame" x="289" y="71" width="5" height="11"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="5" id="2Us-vy-V50"/>
@@ -1150,15 +1150,6 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XTV-Xu-Nq6">
-                                        <rect key="frame" x="43" y="8" width="290" height="31"/>
-                                        <connections>
-                                            <action selector="durationSliderTouchBegan:" destination="ysn-9n-Ic0" eventType="touchDown" id="7ZP-QE-HUV"/>
-                                            <action selector="durationSliderTouchEnded:" destination="ysn-9n-Ic0" eventType="touchUpOutside" id="6Cr-h1-DDj"/>
-                                            <action selector="durationSliderTouchEnded:" destination="ysn-9n-Ic0" eventType="touchUpInside" id="fec-9Z-BdE"/>
-                                            <action selector="durationSliderValueChanged:" destination="ysn-9n-Ic0" eventType="valueChanged" id="jjl-Sn-dlj"/>
-                                        </connections>
-                                    </slider>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zLe-7g-jNr">
                                         <rect key="frame" x="45" y="23" width="286" height="2"/>
                                         <constraints>
@@ -1167,6 +1158,15 @@
                                         <color key="progressTintColor" red="0.91764705879999997" green="0.20392156859999999" blue="0.30196078430000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="trackTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
+                                    <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XTV-Xu-Nq6">
+                                        <rect key="frame" x="42" y="7" width="290" height="31"/>
+                                        <connections>
+                                            <action selector="durationSliderTouchBegan:" destination="ysn-9n-Ic0" eventType="touchDown" id="7ZP-QE-HUV"/>
+                                            <action selector="durationSliderTouchEnded:" destination="ysn-9n-Ic0" eventType="touchUpOutside" id="6Cr-h1-DDj"/>
+                                            <action selector="durationSliderTouchEnded:" destination="ysn-9n-Ic0" eventType="touchUpInside" id="fec-9Z-BdE"/>
+                                            <action selector="durationSliderValueChanged:" destination="ysn-9n-Ic0" eventType="valueChanged" id="jjl-Sn-dlj"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>

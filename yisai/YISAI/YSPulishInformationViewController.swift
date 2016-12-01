@@ -125,14 +125,14 @@ class YSPulishInformationViewController: UIViewController,UITableViewDataSource,
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateProgress:", name: YSMovieUploadProgressNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSPulishInformationViewController.updateProgress(_:)), name: YSMovieUploadProgressNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "uploadFinish:", name: YSMovieUploadFinishNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSPulishInformationViewController.uploadFinish(_:)), name: YSMovieUploadFinishNotification, object: nil)
 
         // 将要进入全屏
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerWillEnterFullscreen:", name: MPMoviePlayerWillEnterFullscreenNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSPulishInformationViewController.moviePlayerWillEnterFullscreen(_:)), name: MPMoviePlayerWillEnterFullscreenNotification, object: nil)
         // 将要退出全屏
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerWillExitFullscreen:", name: MPMoviePlayerWillExitFullscreenNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSPulishInformationViewController.moviePlayerWillExitFullscreen(_:)), name: MPMoviePlayerWillExitFullscreenNotification, object: nil)
         
     }
     override func viewWillDisappear(animated: Bool) {

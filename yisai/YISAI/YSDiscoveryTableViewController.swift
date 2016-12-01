@@ -483,10 +483,10 @@ class YSDiscoveryTableViewController: UITableViewController {
         if findwork == nil {
             return
         }
-        
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("YSDiscoveryDetailViewController") as! YSDiscoveryDetailViewController
         controller.wid = findwork!.wid
         controller.movieURL = findwork!.video_url
+        
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -504,7 +504,7 @@ class YSDiscoveryTableViewController: UITableViewController {
             gotoLogin()
             return
         }else{
-            //--------------张继忠--------------------
+            //--------------potatoes--------------------
             
             if AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) == AVAuthorizationStatus.NotDetermined
             {
@@ -513,7 +513,7 @@ class YSDiscoveryTableViewController: UITableViewController {
             }
        
             
-            //--------------张继忠--------------------
+            //--------------potatoes--------------------
        
         }
     

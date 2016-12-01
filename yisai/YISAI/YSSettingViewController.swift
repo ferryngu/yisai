@@ -67,7 +67,60 @@ class YSSettingViewController: UITableViewController {
             return 1
         }
     }
+    //---------------potatoes----------------
+    func fileSizeOfCache()-> Int {
+        
+        // 取出cache文件夹目录 缓存文件都在这个目录下
+        let cachePath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).first
+        //缓存目录路径
+        print(cachePath)
+        // 取出文件夹下所有文件数组
+        let fileArr = NSFileManager.defaultManager().subpathsAtPath(cachePath!)
+        
+        //快速枚举出所有文件名 计算文件大小
+        var size = 0
+        for file in fileArr! {
+            
+            // 把文件名拼接到路径中
+            let path = cachePath?.stringByAppendingString("/\(file)")
+            // 取出文件属性
+            let floder = try! NSFileManager.defaultManager().attributesOfItemAtPath(path!)
+            // 用元组取出文件大小属性
+            for (abc, bcd) in floder {
+                // 累加文件大小
+                if abc == NSFileSize {
+                    size += bcd.integerValue
+                }
+            }
+        }
+        let mm = size / 1024 / 1024
+        
+        return mm
+    }
     
+    func clearCache() {
+        
+        // 取出cache文件夹目录 缓存文件都在这个目录下
+        let cachePath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).first
+        
+        // 取出文件夹下所有文件数组
+        let fileArr = NSFileManager.defaultManager().subpathsAtPath(cachePath!)
+        
+        // 遍历删除
+        for file in fileArr! {
+            
+            let path = cachePath?.stringByAppendingString("/\(file)")
+            if NSFileManager.defaultManager().fileExistsAtPath(path!) {
+                
+                do {
+                    try NSFileManager.defaultManager().removeItemAtPath(path!)
+                } catch {
+                    
+                }
+            }
+        }
+    }
+    //------------------------------------------------------
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("YSSettingCell")
 
@@ -75,13 +128,16 @@ class YSSettingViewController: UITableViewController {
         
         switch indexPath.section {
         case 0:
-            
             switch indexPath.row {
             case 0:
                 cell!.textLabel?.text = "清空已上传的视频文件(请谨慎操作)"
                 cell!.textLabel?.textColor = UIColor.redColor()
             case 1:
-                cell!.textLabel?.text = "清空缓存"
+                //---------------potatoes----------------
+                let intVal3:Int = fileSizeOfCache()
+                cell!.textLabel?.text = "清理缓存   ( "+(intVal3.description)+"MB )"
+                //---------------potatoes----------------
+                
             case 2:
                 cell!.textLabel?.text = "隐藏参赛评论"
                 
@@ -89,7 +145,7 @@ class YSSettingViewController: UITableViewController {
                 swc.hidden = false
                 swc.setOn(commentConf == 0 ? true : false, animated: true)
                 
-                swc.addTarget(self, action: "changeCptComment:", forControlEvents: UIControlEvents.ValueChanged)
+                swc.addTarget(self, action: #selector(YSSettingViewController.changeCptComment(_:)), forControlEvents: UIControlEvents.ValueChanged)
             default:
                 break
             }
@@ -114,14 +170,13 @@ class YSSettingViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         switch indexPath.section {
         case 0:
             
             switch indexPath.row {
             case 0:
                 // 清理上传队列
-                //                ysApplication.uploadQueue.removeAll(keepCapacity: true)
+                ysApplication.uploadQueue.removeAll(keepCapacity: true)
                 // 清理数据库
                 let movies = YSMovie.getUploadMoviesAboutUID()
                 
@@ -129,7 +184,7 @@ class YSSettingViewController: UITableViewController {
                 let movieStorePath = NSHomeDirectory() + "/Documents/Movie"
                 let recordStorePath = NSHomeDirectory() + "/Documents/Recorder"
 //                var error: NSError?
-                
+                print(NSHomeDirectory())//清理沙盒
                 if movies != nil {
                     
                     for movie in movies! {
@@ -146,7 +201,6 @@ class YSSettingViewController: UITableViewController {
                                     CrashReporter.sharedInstance().reportError(error, reason: error.localizedFailureReason, extraInfo: error.userInfo)
                                     return
                                 }
-
                             }
                             
                             if fileManager.fileExistsAtPath(recordPath) {
@@ -161,17 +215,25 @@ class YSSettingViewController: UITableViewController {
                         }
                     }
                 }
+                //-------------------potatoes---------------------------
+                let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentationDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+                let documentsDirectory = paths.first
+              //  let last = paths.last
+                print(documentsDirectory)//沙盒文件目录     /Users/ferry/Library/Developer/CoreSimulator/Devices/C4F147E3-1FE7-4774-BFD5-B6F7009AE67A/data/Containers/Data/Application/11D8C911-6A0F-410B-8260-8FE403891030
+              //  print(last)
                 
+               // 清理上传队列
                 YSMovie.cleanAllUploadMoviesAboutUID()
-                // 清理文件
-                //                let fileManager = NSFileManager.defaultManager()
-                //                let movieStorePath = NSHomeDirectory() + "/Documents/Movie"
-                //                let recordStorePath = NSHomeDirectory() + "/Documents/Recorder"
-                //                var error: NSError?
+                YSMovie.cleanAllUploadMovies()
+                YSMovie.cleanAllNotUploadMovies()
+                //----------------------------------------------
                 tips.showTipsInMainThread(Text: "清理完毕")
             case 1:
-                fe_clean_http_cache()
+    //-------------------potatoes---------------------------
+                clearCache()
                 tips.showTipsInMainThread(Text: "清理完毕")
+                self.tableView.reloadData()
+            //----------------------------------------------
             case 2:
 //                tips.showTipsInMainThread(Text: "隐藏参赛评论")
                 break

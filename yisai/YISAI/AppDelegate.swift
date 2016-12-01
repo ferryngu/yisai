@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-//       --------------张继忠---------------
+//       --------------potatoes---------------
         let time: NSTimeInterval = 1.5
         let delay = dispatch_time(DISPATCH_TIME_NOW,Int64(time * Double(NSEC_PER_SEC)))
         dispatch_after(delay, dispatch_get_main_queue()) {

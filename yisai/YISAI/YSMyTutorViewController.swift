@@ -22,9 +22,9 @@ class YSMyTutorViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //----------张继忠-----------
+        //----------potatoes-----------
         self.view.backgroundColor = UIColor.whiteColor()
-        //----------张继忠-----------
+        //----------potatoes-----------
         
         tips.duration = 1
         

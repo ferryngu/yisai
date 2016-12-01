@@ -14,13 +14,12 @@ class YSDiscoverySearchViewController: UITableViewController, UISearchBarDelegat
         static var GetFindWork = "GetFindWork"
         static var GetKeyword = "GetKeyword"
     }
-    
     @IBOutlet weak var searchBarBgView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var lst_findWork: [YSDiscoveryMainFindWork]!
     var lst_hot_search: [YSDiscoveryHotSearch]!
-    
+
     var enterSearch: Bool = false
     var tips: FETips = FETips()
     var feiOSHttpImage: FEiOSHttpImage = FEiOSHttpImage()
@@ -97,15 +96,12 @@ class YSDiscoverySearchViewController: UITableViewController, UISearchBarDelegat
         }
     }
     
-    func fetchSearch(searchTitle: String) {
-        
-//        if self.navigationController != nil {
-//            tips.showActivityIndicatorViewInMainThread(navigationController!, text: nil)
-//        }
-        
+    func fetchSearch(searchTitle:String) {
+
+       /////////////////////
         tips.showActivityIndicatorViewInMainThread(self, text: nil)
         
-        YSDiscovery.searchFindWork(searchTitle, startIndex: 0, fetchNum: 9999, resp: { [weak self] (resp_lst_findWork: [YSDiscoveryMainFindWork]!, errorMsg: String!) -> Void in
+        YSDiscovery.searchFindWork(searchTitle, startIndex: 0, fetchNum: 100, resp: { [weak self] (resp_lst_findWork: [YSDiscoveryMainFindWork]!, errorMsg: String!) -> Void in
             
             if self == nil {
                 return
@@ -146,10 +142,15 @@ class YSDiscoverySearchViewController: UITableViewController, UISearchBarDelegat
     
     func gotoDetail(button: UIButton) {
         
-        let findwork = objc_getAssociatedObject(button, &AssociatedKeys.GetFindWork) as! YSDiscoveryMainFindWork
+        let findwork = objc_getAssociatedObject(button, &AssociatedKeys.GetFindWork) as? YSDiscoveryMainFindWork
+        if findwork == nil {
+            return
+        }
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("YSDiscoveryDetailViewController") as! YSDiscoveryDetailViewController
-        controller.wid = findwork.wid
-        controller.movieURL = findwork.video_url
+        controller.wid = findwork!.wid
+        controller.movieURL = findwork!.video_url
+        print(controller.wid)
+        print(controller.movieURL)
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -188,7 +189,7 @@ class YSDiscoverySearchViewController: UITableViewController, UISearchBarDelegat
                     let l_lab_title = normalCell!.contentView.viewWithTag(14) as! UILabel
                     let l_lab_praise = normalCell!.contentView.viewWithTag(15) as! UILabel
                     
-                    l_btn_toDetail.addTarget(self, action: "gotoDetail:", forControlEvents: .TouchUpInside)
+                    l_btn_toDetail.addTarget(self, action: #selector(YSDiscoverySearchViewController.gotoDetail(_:)), forControlEvents: .TouchUpInside)
                     objc_setAssociatedObject(l_btn_toDetail, &AssociatedKeys.GetFindWork, findwork, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                     
                     l_img_video.image = feiOSHttpImage.asyncHttpImageInUIThread(findwork.video_img_url, defaultImageName:DEFAULT_IMAGE_NAME_RECTANGLE, finishCallbackInUIThread: {
@@ -218,7 +219,7 @@ class YSDiscoverySearchViewController: UITableViewController, UISearchBarDelegat
                     
                     let findwork = lst_findWork[index+1]
                     
-                    r_btn_toDetail.addTarget(self, action: "gotoDetail:", forControlEvents: .TouchUpInside)
+                    r_btn_toDetail.addTarget(self, action: #selector(YSDiscoverySearchViewController.gotoDetail(_:)), forControlEvents: .TouchUpInside)
                     objc_setAssociatedObject(r_btn_toDetail, &AssociatedKeys.GetFindWork, findwork, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                     
                     r_img_video.image = feiOSHttpImage.asyncHttpImageInUIThread(findwork.video_img_url, defaultImageName:DEFAULT_IMAGE_NAME_RECTANGLE, finishCallbackInUIThread: {
@@ -249,7 +250,7 @@ class YSDiscoverySearchViewController: UITableViewController, UISearchBarDelegat
                     let btnOriginX = btn_hotViewOriginX + (5 + Int(btn_hotWidth)) * (index % 5)
                     
                     let btn_hot = UIButton(frame: CGRect(x: btnOriginX, y: btnOriginY, width: Int(btn_hotWidth), height: Int(btn_hotHeight)))
-                    btn_hot.addTarget(self, action: "goSearch:", forControlEvents: .TouchUpInside)
+                    btn_hot.addTarget(self, action: #selector(YSDiscoverySearchViewController.goSearch(_:)), forControlEvents: .TouchUpInside)
                     objc_setAssociatedObject(btn_hot, &AssociatedKeys.GetKeyword, hot_search.keyword, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                     btn_hot.setAttributedTitle(NSAttributedString(string: hot_search.keyword, attributes: [NSFontAttributeName : UIFont.systemFontOfSize(btn_hotHeight - 15)]), forState: .Normal)
                     btn_hot.setTitleColor(UIColor.blackColor(), forState: .Normal)

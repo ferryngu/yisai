@@ -26,8 +26,12 @@ class YSDiscoveryDetailViewController: UIViewController, UITableViewDelegate, UI
     
     @IBOutlet weak var loc_container_height: NSLayoutConstraint!
     
+    /*
+     wid  "u52bcEC"
+    movieURL  "http://7xog4v.media1.z0.glb.clouddn.com/89hwjRk8kFtAfw6MJYBJ8YJD-gk=/lgkfzX71-hLETwLtYev8mYt4YPf4"
+     */
     var feiOSHttpImage: FEiOSHttpImage = FEiOSHttpImage()
-    var wid: String!
+    var wid: String! 
     var detail: YSDiscoveryDetail!
     var movieURL: String!
     var movieController: MoviePlayerController!
@@ -83,19 +87,19 @@ class YSDiscoveryDetailViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSDiscoveryDetailViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSDiscoveryDetailViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "hidePopView", name: MZPopViewHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSDiscoveryDetailViewController.hidePopView), name: MZPopViewHideNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playbackSuccess:", name: YSMoviePlaybackSuccess, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playbackFailed:", name: YSMoviePlaybackFailed, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSDiscoveryDetailViewController.playbackSuccess(_:)), name: YSMoviePlaybackSuccess, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSDiscoveryDetailViewController.playbackFailed(_:)), name: YSMoviePlaybackFailed, object: nil)
         
         // 将要进入全屏
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerWillEnterFullscreen:", name: MPMoviePlayerWillEnterFullscreenNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSDiscoveryDetailViewController.moviePlayerWillEnterFullscreen(_:)), name: MPMoviePlayerWillEnterFullscreenNotification, object: nil)
         // 将要退出全屏
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerWillExitFullscreen:", name: MPMoviePlayerWillExitFullscreenNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YSDiscoveryDetailViewController.moviePlayerWillExitFullscreen(_:)), name: MPMoviePlayerWillExitFullscreenNotification, object: nil)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -576,6 +580,7 @@ class YSDiscoveryDetailViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        
         if indexPath.section == 0 {
             
             let topCell = tableView.dequeueReusableCellWithIdentifier("YSDiscoveryTopCell")
@@ -602,13 +607,17 @@ class YSDiscoveryDetailViewController: UIViewController, UITableViewDelegate, UI
             lab_username.text = detail.username
             lab_title.text = detail.title
             img_praise.image = UIImage(named: detail.praise_status.integerValue == 0 ? "xqy_zan" : "xqy_zanhongxin")
-            btn_clickPraise.addTarget(self, action: "praise:", forControlEvents: .TouchUpInside)
+            btn_clickPraise.addTarget(self, action: #selector(YSDiscoveryDetailViewController.praise(_:)), forControlEvents: .TouchUpInside)
             objc_setAssociatedObject(btn_clickPraise, &AssociatedKeys.GetTopCell, topCell, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             lab_praise.text = "\(detail.praise_count)"
             lab_video_view.text = detail.video_view
             lab_update_date.text = handleTime(detail.update_time, style: 1)
-            lab_tag.text = detail.category_name
-            
+           //------------potatoes---------------------
+            let str1:String = "#"
+            let str2:String = "#"
+            let str3:String = detail.category_name
+            lab_tag.text = str1+str3+str2
+//            -----------------------
             return topCell!
             
         } else if indexPath.section == 1 {

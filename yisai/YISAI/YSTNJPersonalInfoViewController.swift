@@ -168,7 +168,7 @@ class YSTNJPersonalInfoViewController: UITableViewController {
     }
     
     func gotoBigAvatar(button: UIButton) {
-        //----------张继忠-------------
+        //----------potatoes-------------
         let controller = UIStoryboard(name: "YSCustom", bundle: nil).instantiateViewControllerWithIdentifier("YSCustomFullImageViewController") as! YSCustomFullImageViewController
         if controller.imgUrl == nil{
          return
